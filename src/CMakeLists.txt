@@ -1,0 +1,2 @@
+add_subdirectory(chapter_2)
+add_subdirectory(common)

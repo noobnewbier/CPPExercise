@@ -6,6 +6,8 @@
 #define MATHS_VECTOR3_H
 
 
+#include "ostream"
+
 namespace common
 {
     class Vector3
@@ -23,6 +25,12 @@ namespace common
 
         void SetZ(float z);
 
+        [[nodiscard]] float X() const;
+
+        [[nodiscard]] float Y() const;
+
+        [[nodiscard]] float Z() const;
+
         Vector3 &operator+=(const Vector3 &rhs);
 
         Vector3 &operator-=(const Vector3 &rhs);
@@ -30,6 +38,8 @@ namespace common
         Vector3 &operator*=(const Vector3 &rhs);
 
         Vector3 &operator/=(const Vector3 &rhs);
+
+        friend std::ostream &operator<<(std::ostream &ostream, const Vector3 &vec);
 
         friend Vector3 operator-(const Vector3 &vec);
 

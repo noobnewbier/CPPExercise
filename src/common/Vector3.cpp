@@ -2,7 +2,7 @@
 // Created by Shaco on 8/25/2020.
 //
 
-#include "Vector3.h"
+#include "../../include/common/Vector3.h"
 
 namespace common
 {
@@ -85,5 +85,26 @@ namespace common
 
         return lhs /= rhs;
     }
+
+    float Vector3::X() const
+    {
+        return m_x;
+    }
+
+    float Vector3::Y() const
+    {
+        return m_y;
+    }
+
+    float Vector3::Z() const
+    {
+        return m_z;
+    }
+
+    std::ostream &operator<<(std::ostream &ostream, const Vector3 &vec)
+    {
+        return ostream << "<" << vec.m_x << "," << vec.m_y << "," << vec.m_z << ">";
+    }
+
 
 }
