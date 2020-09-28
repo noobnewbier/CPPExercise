@@ -7,9 +7,9 @@ add_library(ChapterTwo SHARED ${CHAPTER_TWO_SOURCES})
 add_dependencies(ChapterTwo Common)
 target_link_libraries(ChapterTwo PUBLIC Common)
 
-target_include_directories(ChapterTwo
-        PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include/chapter_2>
-        $<INSTALL_INTERFACE:include/chapter_2>
-        )
-
+add_custom_command(
+        TARGET ChapterTwo POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        $<TARGET_FILE_DIR:Common>
+        $<TARGET_FILE_DIR:ChapterTwo>
+)
